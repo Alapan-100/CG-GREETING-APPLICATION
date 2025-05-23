@@ -41,6 +41,12 @@ public class GreetingController {
 	                                  @RequestParam(required = false) String lastName) {
 	    return greetingService.getPersonalizedGreeting(firstName, lastName);
 	}
+	//uc4
+	@PostMapping("/save")
+	public Greeting saveGreeting(@RequestBody Greeting greeting) {
+	    return greetingService.saveGreeting(greeting);
+	}
+
 
 
 	
