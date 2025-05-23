@@ -13,7 +13,29 @@ public class GreetingController {
     public String sayHello() {
         return "Hello from BridgeLabz";
     }
-	
+	@Autowired
+	private GreetingService greetingService;
+
+    @GetMapping
+	public Greeting getgreeting() {
+		return greetingService.GetGreetingMessage("get");
+	}
+
+	@PutMapping
+	public Greeting putgreeting() {
+		return greetingService.GetGreetingMessage("put");
+	}
+
+	@PostMapping
+	public Greeting postgreeting() {
+		return greetingService.GetGreetingMessage("post");
+	}
+
+	@DeleteMapping
+	public Greeting deletegreeting() {
+		return greetingService.GetGreetingMessage("delete");
+	}
+
 	
     
 }
