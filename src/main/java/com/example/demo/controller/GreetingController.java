@@ -12,7 +12,7 @@ public class GreetingController {
 	@GetMapping("/hello")
     public String sayHello() {
         return "Hello from BridgeLabz";
-    }
+    }//UC2
 	@Autowired
 	private GreetingService greetingService;
 
@@ -35,6 +35,13 @@ public class GreetingController {
 	public Greeting deletegreeting() {
 		return greetingService.GetGreetingMessage("delete");
 	}
+	//uc3
+	@GetMapping("/custom")
+	public Greeting getCustomGreeting(@RequestParam(required = false) String firstName,
+	                                  @RequestParam(required = false) String lastName) {
+	    return greetingService.getPersonalizedGreeting(firstName, lastName);
+	}
+
 
 	
     
