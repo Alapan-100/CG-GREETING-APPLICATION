@@ -60,8 +60,6 @@ public class GreetingService {
     public Greeting save(Greeting greeting) {
         return greetingRepository.save(greeting);
     }
-
-    // METHOD TO UPDATE A GREETING
     public Greeting updateGreeting(long id, Greeting updatedGreeting) {
         Greeting existingGreeting = greetingRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Greeting not found"));
@@ -70,12 +68,10 @@ public class GreetingService {
 
         return greetingRepository.save(existingGreeting);
     }
-
-    // ✅ CORRECTED METHOD TO DELETE
     public void deleteGreeting(long id) {
         greetingRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Greeting not found"));
 
-        greetingRepository.deleteById(id); // ✅ Your repository supports deleteById, not delete(object)
+        greetingRepository.deleteById(id); 
     }
 }
